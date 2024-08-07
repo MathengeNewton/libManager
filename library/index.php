@@ -7,11 +7,7 @@ $_SESSION['login']='';
 }
 if(isset($_POST['login']))
 {
-  //code for captach verification
-if ($_POST["vercode"] != $_SESSION["vercode"] OR $_SESSION["vercode"]=='')  {
-        echo "<script>alert('Incorrect verification code');</script>" ;
-    } 
-        else {
+
 $email=$_POST['emailid'];
 $password=md5($_POST['password']);
 $sql ="SELECT EmailId,Password,StudentId,Status FROM tblstudents WHERE EmailId=:email and Password=:password";
@@ -28,7 +24,7 @@ if($query->rowCount() > 0)
 if($result->Status==1)
 {
 $_SESSION['login']=$_POST['emailid'];
-echo "<script type='text/javascript'> document.location ='dashboard.php'; </script>";
+  echo "<script type='text/javascript'> document.location ='dashboard.php'; </script>";
 } else {
 echo "<script>alert('Your Account Has been blocked .Please contact admin');</script>";
 
@@ -40,7 +36,7 @@ echo "<script>alert('Your Account Has been blocked .Please contact admin');</scr
 else{
 echo "<script>alert('Invalid Details');</script>";
 }
-}
+
 }
 ?>
 <!DOCTYPE html>
@@ -50,7 +46,7 @@ echo "<script>alert('Invalid Details');</script>";
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Online Library Management System | </title>
+    <title>Online Library Management System </title>
     <!-- BOOTSTRAP CORE STYLE  -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME STYLE  -->
@@ -94,9 +90,9 @@ echo "<script>alert('Invalid Details');</script>";
 </div>
 
  <div class="form-group">
-<label>Verification code : </label>
+<!-- <label>Verification code : </label>
 <input type="text" class="form-control1"  name="vercode" maxlength="5" autocomplete="off" required  style="height:25px;" />&nbsp;<img src="captcha.php">
-</div> 
+</div>  -->
 
  <button type="submit" name="login" class="btn btn-info">LOGIN </button> | <a href="signup.php">Not Register Yet</a>
 </form>

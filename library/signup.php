@@ -5,10 +5,7 @@ error_reporting(0);
 if(isset($_POST['signup']))
 {
 //code for captach verification
-if ($_POST["vercode"] != $_SESSION["vercode"] OR $_SESSION["vercode"]=='')  {
-        echo "<script>alert('Incorrect verification code');</script>" ;
-    } 
-        else {    
+  
 //Code for student ID
 $count_my_page = ("studentid.txt");
 $hits = file($count_my_page);
@@ -41,7 +38,7 @@ else
 echo "<script>alert('Something went wrong. Please try again');</script>";
 }
 }
-}
+
 ?>
 
 <!DOCTYPE html>

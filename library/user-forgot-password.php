@@ -4,11 +4,7 @@ error_reporting(0);
 include('includes/config.php');
 if(isset($_POST['change']))
 {
-  //code for captach verification
-if ($_POST["vercode"] != $_SESSION["vercode"] OR $_SESSION["vercode"]=='')  {
-        echo "<script>alert('Incorrect verification code');</script>" ;
-    } 
-        else {
+
 $email=$_POST['email'];
 $mobile=$_POST['mobile'];
 $newpassword=md5($_POST['newpassword']);
@@ -31,7 +27,7 @@ echo "<script>alert('Your Password succesfully changed');</script>";
 else {
 echo "<script>alert('Email id or Mobile no is invalid');</script>"; 
 }
-}
+
 }
 ?>
 <!DOCTYPE html>
